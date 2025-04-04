@@ -7,7 +7,7 @@ from collections import defaultdict
 import streamlit as st
 
 
-openai.api_key = st.secrets["api"]["openai_key"]
+openai.api_key = st.secrets["api"]["openai_api_key"]
 
 
 
