@@ -16,10 +16,29 @@ openai.api_key = st.secrets["api"]["openai_key"]
 
 
 # === FAISS News Handler ===
+# def get_faiss_news_answer(query_text: str, start_date=None, end_date=None):
+#     # === Setup ===
+#     base_folder = os.getcwd()
+#     articles_folder = os.path.join(base_folder, "articles_by_week")
+#     faiss_index_path = os.path.join(base_folder, "faiss_banking_news.bin")
+#     index = faiss.read_index(faiss_index_path)
+
+#     # === Tự động tạo ngày nếu chưa truyền ===
+#     if not start_date or not end_date:
+#         today = datetime.today()
+#         start_date = (today - timedelta(days=30)).strftime("%Y-%m-%d")
+#         end_date = today.strftime("%Y-%m-%d")
+
+#     start_dt = datetime.strptime(start_date, "%Y-%m-%d")
+#     end_dt = datetime.strptime(end_date, "%Y-%m-%d")
+
+#     doc_name = query_text.strip()
 def get_faiss_news_answer(query_text: str, start_date=None, end_date=None):
     # === Setup ===
     base_folder = os.getcwd()
-    articles_folder = os.path.join(base_folder, "articles_by_week")
+    # Gỡ articles_folder – KHÔNG DÙNG THƯ MỤC NỮA
+    # articles_folder = os.path.join(base_folder, "articles_by_week")
+
     faiss_index_path = os.path.join(base_folder, "faiss_banking_news.bin")
     index = faiss.read_index(faiss_index_path)
 
@@ -33,6 +52,21 @@ def get_faiss_news_answer(query_text: str, start_date=None, end_date=None):
     end_dt = datetime.strptime(end_date, "%Y-%m-%d")
 
     doc_name = query_text.strip()
+
+    # === Load dữ liệu từ file articles (gộp sẵn)
+    articles_path = os.path.join(base_folder, "articles_2025-03-17.json")  # hoặc đổi tên lại thành articles.json
+    with open(articles_path, "r", encoding="utf-8") as f:
+        articles_data = json.load(f)
+
+    # === Lọc theo ngày
+    filtered_articles = {
+        url: art for url, art in articles_data.items()
+        if start_dt <= datetime.strptime(art["date"], "%Y-%m-%d") <= end_dt
+    }
+
+    # === Phần xử lý tiếp (nối vào phần index.search, get_embedding, v.v.)
+    return filtered_articles
+
 
     # === Dùng GPT để trích keyword cho BM25 ===
     def extract_keywords_by_gpt(prompt):
