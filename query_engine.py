@@ -11,7 +11,7 @@ openai.api_key = "sk-proj-SDjpIv8FXFad_0NaCygVwQZPHHazZx-c58qz8GNLstM5lkLpqAdTnX
 
 
 # ==== CẤU HÌNH ====
-BASE_FOLDER = r"C:\Python\Streamlit\Faiss"
+BASE_FOLDER = os.getcwd()
 FAISS_INDEX_PATH = os.path.join(BASE_FOLDER, "faiss_banking_index.bin")
 KEY_MAP_PATH = os.path.join(BASE_FOLDER, "faiss_key_map.json")
 EMBEDDING_DIM = 3072  # openai text-embedding-3-large
