@@ -9,4 +9,5 @@ gdown
 faiss-cpu
 scipy
 openpyxl
-
+googlesearch-python
+duckduckgo-search
