@@ -6,8 +6,7 @@ from rank_bm25 import BM25Okapi
 from collections import defaultdict
 import streamlit as st
 
-
-st.secrets[openai_api_key]== ""
+openai.api_key = st.secrets["openai_api_key"]
 
 
 # query_engine.py - Đã fix fallback BM25 + FAISS + lọc thời gian
