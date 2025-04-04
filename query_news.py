@@ -16,7 +16,7 @@ openai.api_key = "sk-proj-SDjpIv8FXFad_0NaCygVwQZPHHazZx-c58qz8GNLstM5lkLpqAdTnX
 # === FAISS News Handler ===
 def get_faiss_news_answer(query_text: str, start_date=None, end_date=None):
     # === Setup ===
-    base_folder = r"C:\\Python\\Streamlit\\Faiss"
+    base_folder = os.getcwd()
     articles_folder = os.path.join(base_folder, "articles_by_week")
     faiss_index_path = os.path.join(base_folder, "faiss_banking_news.bin")
     index = faiss.read_index(faiss_index_path)
