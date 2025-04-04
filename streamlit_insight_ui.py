@@ -17,6 +17,7 @@ import gdown
 st.set_page_config(layout="centered")
 
 # Danh sách các file FAISS cần tải nếu chưa có
+
 file_links = {
     "faiss_banking_index.bin": "https://drive.google.com/uc?id=1lIFGw_O3pTsVE5MQx0sEqWX8MMiz00ei",
     "faiss_key_map.json": "https://drive.google.com/uc?id=1r--suOBbJ2ROIcy6lYlVworfDx--k-S2",
