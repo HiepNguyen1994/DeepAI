@@ -1,6 +1,10 @@
 streamlit
-faiss-cpu
 openai
 pandas
+matplotlib
 numpy
+requests
+bs4
 gdown
+faiss-cpu
+scipy
