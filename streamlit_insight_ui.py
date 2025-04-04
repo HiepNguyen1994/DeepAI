@@ -139,15 +139,18 @@ def get_page_summary_with_meta(url):
 
 if submit and query:
     st.write(f"🧠 Kết quả tìm kiếm cho: **{query}**")
-    with DDGS() as ddgs:
-        results = ddgs.text(query, region="wt-wt", safesearch="moderate", max_results=5)
-        for r in results:
-            url = r["href"]
-            title, summary, source, pub_time = get_page_summary_with_meta(url)
-            st.markdown(f"### [{title}]({url})")
-            st.markdown(f"📌 **Nguồn**: `{source}` | 🕒 **Thời gian**: {pub_time}")
-            st.write(summary)
-            st.markdown("---")
+    try:
+        with DDGS() as duck:
+            results = duck.text(query, region="wt-wt", safesearch="moderate", max_results=5)
+            for r in results:
+                url = r["href"]
+                title, summary, source, pub_time = get_page_summary_with_meta(url)
+                st.markdown(f"### [{title}]({url})")
+                st.markdown(f"📌 **Nguồn**: `{source}` | 🕒 **Thời gian**: {pub_time}")
+                st.write(summary)
+                st.markdown("---")
+    except Exception as e:
+        st.error("❌ Lỗi tìm kiếm trên DuckDuckGo: " + str(e))
 
 ### VẼ CHART TỰ ĐỘNG
 
