@@ -16,6 +16,9 @@ import gdown
 
 st.set_page_config(layout="centered")
 
+import streamlit as st
+st.write("🔐 API key:", st.secrets.get("api", {}).get("openai_key", "Không có"))
+
 # Danh sách các file FAISS cần tải nếu chưa có
 
 # ==== TẢI FILE GOOGLE DRIVE ====
