@@ -8,3 +8,5 @@ bs4
 gdown
 faiss-cpu
 scipy
+openpyxl
+
