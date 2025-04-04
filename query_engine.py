@@ -4,6 +4,8 @@ import os, json, faiss, numpy as np, openai, re
 from datetime import datetime
 from rank_bm25 import BM25Okapi
 from collections import defaultdict
+import streamlit as st
+
 
 openai.api_key = st.secrets["api"]["openai_key"]
 
