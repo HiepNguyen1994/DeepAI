@@ -10,7 +10,8 @@ from rank_bm25 import BM25Okapi
 from datetime import datetime
 from datetime import datetime, timedelta
 
-openai.api_key = "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"
+openai.api_key = st.secrets["api"]["openai_key"]
+
 
 
 # === FAISS News Handler ===
