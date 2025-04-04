@@ -11,7 +11,7 @@ from datetime import datetime
 from datetime import datetime, timedelta
 import streamlit as st
 
-st.secrets[openai_api_key]== ""
+openai.api_key = st.secrets["openai_api_key"]
 
 
 # === FAISS News Handler ===
