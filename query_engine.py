@@ -7,7 +7,7 @@ from collections import defaultdict
 import streamlit as st
 
 
-openai.api_key = st.secrets.api.openai_api_key
+st.secrets[openai_api_key]== ""
 
 
 # query_engine.py - Đã fix fallback BM25 + FAISS + lọc thời gian
