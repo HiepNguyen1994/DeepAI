@@ -18,10 +18,12 @@ st.set_page_config(layout="centered")
 
 # Danh sách các file FAISS cần tải nếu chưa có
 
+# ==== TẢI FILE GOOGLE DRIVE ====
 file_links = {
     "faiss_banking_index.bin": "https://drive.google.com/uc?id=1lIFGw_O3pTsVE5MQx0sEqWX8MMiz00ei",
     "faiss_key_map.json": "https://drive.google.com/uc?id=1r--suOBbJ2ROIcy6lYlVworfDx--k-S2",
-    "faiss_banking_news.bin": "https://drive.google.com/uc?id=1MwbWyJHbP4gFKIpZxYgy-1tdyY0rv7ke"
+    "faiss_banking_news.bin": "https://drive.google.com/uc?id=1MwbWyJHbP4gFKIpZxYgy-1tdyY0rv7ke",
+    "articles.json": "https://drive.google.com/uc?id=1o8JKsWTIC--DqEka3OabPBkWSCswx2rW"
 }
 
 for filename, url in file_links.items():
